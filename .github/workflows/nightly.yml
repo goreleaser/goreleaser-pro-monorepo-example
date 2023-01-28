@@ -22,10 +22,10 @@ jobs:
         with:
           go-version: 1.19
           cache: true
-      - if: contains(github.ref, "a/v")
+      - if: startsWith(github.ref, 'refs/tags/a/v')
         shell: bash
         run: echo "-f ./a/.goreleaser.yml" >> $GITHUB_ENV
-      - if: contains(github.ref, "b/v")
+      - if: startsWith(github.ref, 'refs/tags/b/v')
         shell: bash
         run: echo "-f ./b/.goreleaser.yml" >> $GITHUB_ENV
       - uses: goreleaser/goreleaser-action@v4
