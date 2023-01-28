@@ -21,7 +21,6 @@ jobs:
       - uses: actions/setup-go@v3
         with:
           go-version: 1.19
-          cache: true
       - if: startsWith(github.ref, 'refs/tags/a/v')
         shell: bash
         run: echo "-f ./a/.goreleaser.yml" >> $GITHUB_ENV
